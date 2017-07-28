@@ -1,0 +1,9 @@
+/.idea/
+
+/node_modules/
+/package-lock.json
+
+/log/
+
+/conf/config.json
+/conf/pm2.json
