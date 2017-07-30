@@ -5,12 +5,15 @@ const config = require('lib/config');
 const logger = require('lib/logger');
 
 
-module.exports = app => {
+module.exports = () => {
+	const express = require('express');
 	const bodyParser = require('body-parser');
 	
 	
 	logger.debug('Configuring express..');
 	
+	
+	const app = express();
 	
 	app.use(logger.express);
 	
@@ -21,4 +24,7 @@ module.exports = app => {
 	
 	
 	logger.debug('Express configured');
+	
+	
+	return app;
 };
