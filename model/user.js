@@ -5,7 +5,8 @@ const mongoose = require('mongoose');
 const crypto = require('crypto');
 
 
-const User = new mongoose.Schema({
+let User;
+const UserModel = new mongoose.Schema({
 	login: {
 		type: String,
 		unique: true,
@@ -18,9 +19,11 @@ const User = new mongoose.Schema({
 });
 
 
-User.statics.hash = function (text) {
+UserModel.statics.hash = function (text) {
 	return crypto.createHash('sha256').update(text).digest('base64');
 };
 
 
-module.exports = mongoose.model('User', User);
+User = mongoose.model('User', UserModel);
+
+module.exports = User;
