@@ -1,3 +1,36 @@
 <!DOCTYPE html>
 
-<%- body %>
+<title>ATG design</title>
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/layout.css?v=<%= version %>">
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/js/request.js?v=<%= version %>"></script>
+
+
+<div class="navbar navbar-inverse navbar-static-top header">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a href="/" class="navbar-brand">mail-proxy</a>
+		</div>
+
+		<div class="navbar-right">
+			<% if (user) { %>
+			<p class="navbar-text"><%= user.login %></p>
+
+			<ul class="nav navbar-nav">
+				<li><a href="#" id="logout">Выход</a></li>
+			</ul>
+			<% } %>
+		</div>
+	</div>
+</div>
+<div class="container-fluid content">
+	<%- body %>
+</div>
+
+
+<script src="/js/layout.js?v=<%= version %>"></script>

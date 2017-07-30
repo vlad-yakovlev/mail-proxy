@@ -22,7 +22,7 @@ module.exports = app => {
 			res.locals.user = req.user;
 			
 			// Версия проекта, для подключения ресурсов
-			res.locals.version = yield require('git-rev-promises').short();
+			res.locals.version = (yield require('git-rev-promises').short()) || `date_${Date.now()}`;
 			
 			next();
 		});

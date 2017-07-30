@@ -6,6 +6,8 @@ const logger = require('lib/logger');
 
 
 module.exports = () => {
+	const path = require('path');
+	
 	const express = require('express');
 	const bodyParser = require('body-parser');
 	
@@ -21,6 +23,9 @@ module.exports = () => {
 	app.use(bodyParser.urlencoded({
 		extended: false,
 	}));
+	
+	const staticPath = path.join(process.cwd(), 'public');
+	app.use(express.static(staticPath));
 	
 	
 	logger.debug('Express configured');

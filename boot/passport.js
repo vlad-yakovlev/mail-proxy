@@ -13,6 +13,8 @@ module.exports = app => {
 	const mongoose = require('mongoose');
 	const MongoStore = require('connect-mongo')(session);
 	
+	const User = require('model/user');
+	
 	
 	logger.debug('Configuring passport..');
 	
@@ -38,7 +40,7 @@ module.exports = app => {
 	
 	passport.deserializeUser((id, done) => {
 		co(function*() {
-			const user = yield e.m.user.findById(id);
+			const user = yield User.findById(id);
 			if ( ! user) {
 				throw new Error('User not found');
 			}

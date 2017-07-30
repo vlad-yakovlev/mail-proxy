@@ -12,7 +12,29 @@ module.exports = app => {
 	logger.debug('Configuring router..');
 	
 	
-	const index = require('routes/index');
+	const
+		index     = require('routes/index'),
+		auth      = require('routes/auth'),
+		dashboard = require('routes/dashboard');
+	
+	Router(app, $ => {
+		// redirect to dashboard in method
+		$.get('/').to(index.view);
+		
+		$.bridge('/auth', $ => {
+			$.post('/login').to(auth.login);
+			$.post('/logout').to(auth.logout);
+		});
+		
+		$.bridge(auth.authBridge, $ => {
+			$.bridge('/dashboard', $ => {
+				$.get('').to(dashboard.view);
+			});
+		});
+	}, err => {
+		console.log(err);
+		e.log.error(err);
+	});
 	
 	Router(app, $ => {
 		$.get('/').to(index.view);

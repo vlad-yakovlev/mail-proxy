@@ -7,6 +7,10 @@ const logger = require('lib/logger');
 
 module.exports = {
 	view(req, res, next) {
-		res.render('index');
+		if (req.user) {
+			res.redirect(303, '/dashboard');
+		} else {
+			res.render('index');
+		}
 	}
 };
