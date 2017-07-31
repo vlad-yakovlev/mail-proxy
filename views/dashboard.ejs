@@ -1,1 +1,34 @@
-<h1>Hello, World!</h1>
+<link rel="stylesheet" href="/css/dashboard.css?v=<%= version %>">
+
+<div class="dashboard">
+	<div class="dashboard-list">
+		<% if (list.length) { list.forEach(mail => { %>
+			<div class="dashboard-item">
+				<div class="dashboard-item-title">
+					<div class="dashboard-item-subject" title="<%= mail.subject %>"><%= mail.subject %></div>
+					<div class="dashboard-item-date text-muted"><%= moment(mail.date).format('DD.MM.YYYY HH:mm') %></div>
+				</div>
+				<a href="#" class="dashboard-item-accept text-success">
+					<span class="fa fa-check"></span>
+				</a>
+				<a href="#" class="dashboard-item-reject text-danger">
+					<span class="fa fa-times"></span>
+				</a>
+			</div>
+		<% }) } else { %>
+			<div class="dashboard-item">
+				<div class="text-muted">Нет писем</div>
+			</div>
+		<% } %>
+	</div>
+	<div class="dashboard-preview">
+		<div>От: </div>
+		<div>Кому: </div>
+		<div>Копия: </div>
+		<div>Скрытая копия: </div>
+		<div>Обратный адрес: </div>
+		<div>Дата: </div>
+		<div>Тема: </div>
+		<div class="dashboard-preview-html"></div>
+	</div>
+</div>

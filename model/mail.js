@@ -17,6 +17,11 @@ const MailSchema = new mongoose.Schema({
 		type: mongoose.Schema.ObjectId,
 		required: true,
 	},
+	status: {
+		type: String,
+		enum: ['new', 'accepted', 'rejected'],
+		default: 'new',
+	},
 	
 	from: {
 		type: String,
@@ -66,8 +71,8 @@ MailSchema.statics.receive = function (user, stream) {
 			from: mailRaw.from.text,
 			to: mailRaw.to.text,
 			date: mailRaw.date,
-		
-			subjec: mailRaw.subject,
+			
+			subject: mailRaw.subject,
 			html: mailRaw.html,
 			text: mailRaw.text,
 		});

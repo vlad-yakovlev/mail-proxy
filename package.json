@@ -12,6 +12,7 @@
 		"express-session": "1.15.4",
 		"fs-extra": "4.0.0",
 		"git-rev-promises": "1.0.8",
+		"he": "1.1.1",
 		"mailparser": "2.0.5",
 		"moment": "2.18.1",
 		"mongoose": "4.11.4",

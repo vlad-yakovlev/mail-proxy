@@ -15,6 +15,9 @@ module.exports = app => {
 	
 	app.use((req, res, next) => {
 		co(function*() {
+			// Доступ к библиотеке форматирования даты
+			res.locals.moment = require('moment');
+			
 			// Доступ к конфигу из шаблона
 			res.locals.config = config;
 			
