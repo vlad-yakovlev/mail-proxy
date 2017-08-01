@@ -11,7 +11,7 @@ module.exports = () => {
 	const SMTPServer = require('smtp-server').SMTPServer;
 	
 	const Mail = require('model/mail');
-	const SmtpUser = require('model/smtpUser');
+	const SmtpUser = require('model/smtp-user');
 	
 	
 	logger.debug('Configuring SMTP server..');

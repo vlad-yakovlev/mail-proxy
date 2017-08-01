@@ -29,6 +29,14 @@ module.exports = app => {
 		$.bridge(auth.authBridge, $ => {
 			$.bridge('/dashboard', $ => {
 				$.get('').to(dashboard.view);
+				
+				$.bridge('/mail', $ => {
+					$.get('/:id').to(dashboard.viewMail);
+					$.post('/:id/accept').to(dashboard.acceptMail);
+					$.post('/:id/reject').to(dashboard.rejectMail);
+				});
+				
+				$.get('/attachment/:id').to(dashboard.getAttachment);
 			});
 		});
 	}, err => {

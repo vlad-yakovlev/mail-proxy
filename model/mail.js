@@ -73,7 +73,7 @@ MailSchema.statics.receive = function (user, stream) {
 			date: mailRaw.date,
 			
 			subject: mailRaw.subject,
-			html: mailRaw.html,
+			html: mailRaw.html || null,
 			text: mailRaw.text,
 		});
 		

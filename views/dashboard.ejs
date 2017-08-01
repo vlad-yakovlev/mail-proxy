@@ -3,32 +3,73 @@
 <div class="dashboard">
 	<div class="dashboard-list">
 		<% if (list.length) { list.forEach(mail => { %>
-			<div class="dashboard-item">
+			<div class="dashboard-item js-open" data-id="<%= mail._id %>">
 				<div class="dashboard-item-title">
 					<div class="dashboard-item-subject" title="<%= mail.subject %>"><%= mail.subject %></div>
 					<div class="dashboard-item-date text-muted"><%= moment(mail.date).format('DD.MM.YYYY HH:mm') %></div>
 				</div>
-				<a href="#" class="dashboard-item-accept text-success">
+				<div class="dashboard-item-accept js-accept" data-id="<%= mail._id %>">
 					<span class="fa fa-check"></span>
-				</a>
-				<a href="#" class="dashboard-item-reject text-danger">
+				</div>
+				<div class="dashboard-item-reject js-reject" data-id="<%= mail._id %>">
 					<span class="fa fa-times"></span>
-				</a>
+				</div>
 			</div>
 		<% }) } else { %>
-			<div class="dashboard-item">
+			<div class="dashboard-list-empty">
 				<div class="text-muted">Нет писем</div>
 			</div>
 		<% } %>
 	</div>
 	<div class="dashboard-preview">
-		<div>От: </div>
-		<div>Кому: </div>
-		<div>Копия: </div>
-		<div>Скрытая копия: </div>
-		<div>Обратный адрес: </div>
-		<div>Дата: </div>
-		<div>Тема: </div>
-		<div class="dashboard-preview-html"></div>
+		<% if (mail) { %>
+			<div>
+				<span class="text-muted">Автор:</span>
+				<%= mail._user.name %>
+			</div>
+			<div>
+				<span class="text-muted">От:</span>
+				<%= mail.from %>
+			</div>
+			<div>
+				<span class="text-muted">Кому:</span>
+				<%= mail.to %>
+			</div>
+			<div>
+				<span class="text-muted">Копия:</span>
+				<%= mail.cc %>
+			</div>
+			<div>
+				<span class="text-muted">Скрытая копия:</span>
+				<%= mail.bcc %>
+			</div>
+			<div>
+				<span class="text-muted">Обратный адрес:</span>
+				<%= mail.replyTo %>
+			</div>
+			<div>
+				<span class="text-muted">Дата:</span>
+				<%= moment(mail.date).format('DD.MM.YYYY HH:mm') %>
+			</div>
+			<div>
+				<span class="text-muted">Тема:</span>
+				<%= mail.subject %>
+			</div>
+			<div>
+				<span class="text-muted">Вложения:</span>
+				<% mail._attachments.forEach(attachment => { %>
+					<a href="/dashboard/attachment/<%= attachment._id %>"><%= attachment.name %></a>
+				<% }) %>
+			</div>
+			<div class="dashboard-preview-html">
+				<%- mail._preview %>
+			</div>
+		<% } else { %>
+			<div class="dashboard-preview-empty">
+				<div class="text-muted">Письмо не выбрано</div>
+			</div>
+		<% } %>
 	</div>
 </div>
+
+<script src="/js/dashboard.js?v=<%= version %>"></script>
