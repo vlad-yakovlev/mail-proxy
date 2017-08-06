@@ -32,6 +32,7 @@ module.exports = app => {
 				
 				$.bridge('/mail', $ => {
 					$.get('/:id').to(dashboard.viewMail);
+					$.get('/:id/html').to(dashboard.viewHtml);
 					$.post('/:id/accept').to(dashboard.acceptMail);
 					$.post('/:id/reject').to(dashboard.rejectMail);
 				});

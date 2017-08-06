@@ -64,6 +64,20 @@ module.exports = {
 		}).catch(next);
 	},
 	
+	viewHtml(req, res, next) {
+		co(function*() {
+			const mail = yield Mail.findOne({
+				_id: req.params.id,
+			});
+			
+			
+			res.render('html', {
+				layout: false,
+				html: mail.html,
+			});
+		}).catch(next);
+	},
+	
 	acceptMail(req, res, next) {
 		co(function*() {
 			const mail = yield Mail.findOne({

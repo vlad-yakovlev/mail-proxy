@@ -73,8 +73,7 @@ MailSchema.statics.receive = function (user, stream) {
 			date: mailRaw.date,
 			
 			subject: mailRaw.subject,
-			html: mailRaw.html || null,
-			text: mailRaw.text,
+			text: mailRaw.text || '',
 		});
 		
 		if (mailRaw.cc) {
@@ -85,6 +84,10 @@ MailSchema.statics.receive = function (user, stream) {
 		}
 		if (mailRaw.replyTo) {
 			mail.replyTo = mailRaw.replyTo.text;
+		}
+		
+		if (mailRaw.html) {
+			mail.html = mailRaw.html;
 		}
 		
 		
