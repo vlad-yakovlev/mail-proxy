@@ -23,6 +23,9 @@ module.exports = app => {
 	
 	app.use(session({
 		secret: config.get('passport:secret'),
+		cookie:{
+			maxAge: 30 * 24 * 3600 * 1000, // 30 days
+		},
 		resave: true,
 		saveUninitialized: true,
 		store: new MongoStore({
