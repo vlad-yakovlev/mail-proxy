@@ -70,7 +70,6 @@ module.exports = {
 				_id: req.params.id,
 			});
 			
-			
 			res.render('html', {
 				layout: false,
 				html: mail.html,
