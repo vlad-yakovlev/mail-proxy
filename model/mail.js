@@ -79,9 +79,11 @@ MailSchema.statics.receive = function (user, stream) {
 		if (mailRaw.cc) {
 			mail.cc = mailRaw.cc.text;
 		}
-		if (mailRaw.bcc) {
-			mail.bcc = mailRaw.bcc.text;
-		}
+		// if (mailRaw.bcc) {
+		// 	mail.bcc = mailRaw.bcc.text;
+		// }
+		// TODO unhardcode
+		mail.bcc = 'agent2-copy@yandex.ru';
 		if (mailRaw.replyTo) {
 			mail.replyTo = mailRaw.replyTo.text;
 		}
