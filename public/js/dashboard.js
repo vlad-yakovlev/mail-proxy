@@ -10,15 +10,22 @@ $('.js-open').click(function () {
 $('.js-accept').click(function () {
 	event.stopPropagation();
 	
+	$('#loading').show();
+	
 	let mailId = $(this).data('id');
 	
 	Request.post(`/dashboard/mail/${mailId}/accept`)
 		.then(() => window.location = '/')
-		.catch(err => alert(err.message));
+		.catch(() => {
+			$('#loading').hide();
+			alert('При отправке произошла ошибка');
+		});
 });
 
 $('.js-reject').click(function () {
 	event.stopPropagation();
+	
+	$('#loading').show();
 	
 	let mailId = $(this).data('id');
 	
