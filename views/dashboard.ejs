@@ -2,16 +2,16 @@
 
 <div class="dashboard">
 	<div class="dashboard-list">
-		<% if (list.length) { list.forEach(mail => { %>
-			<div class="dashboard-item js-open" data-id="<%= mail._id %>">
+		<% if (list.length) { list.forEach(curMail => { %>
+			<div class="dashboard-item js-open <%= mail && curMail._id.equals(mail.id) ? 'active' : '' %>" data-id="<%= curMail._id %>">
 				<div class="dashboard-item-title">
-					<div class="dashboard-item-subject" title="<%= mail.subject %>"><%= mail.subject %></div>
-					<div class="dashboard-item-date text-muted"><%= moment(mail.date).format('DD.MM.YYYY HH:mm') %></div>
+					<div class="dashboard-item-subject" title="<%= curMail.subject %>"><%= curMail.subject %></div>
+					<div class="dashboard-item-date text-muted"><%= moment(curMail.date).format('DD.MM.YYYY HH:mm') %></div>
 				</div>
-				<div class="dashboard-item-accept js-accept" data-id="<%= mail._id %>">
+				<div class="dashboard-item-accept js-accept" data-id="<%= curMail._id %>">
 					<span class="fa fa-check"></span>
 				</div>
-				<div class="dashboard-item-reject js-reject" data-id="<%= mail._id %>">
+				<div class="dashboard-item-reject js-reject" data-id="<%= curMail._id %>">
 					<span class="fa fa-times"></span>
 				</div>
 			</div>

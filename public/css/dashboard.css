@@ -32,7 +32,8 @@ hr {
 			
 			cursor: pointer;
 		}
-			.dashboard-item:hover {
+			.dashboard-item:hover,
+			.dashboard-item.active {
 				background-color: #eee;
 			}
 			.dashboard-item-title {
