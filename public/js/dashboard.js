@@ -9,6 +9,10 @@ $('.js-open').click(function () {
 
 $('.js-accept').click(function () {
 	event.stopPropagation();
+
+	if ( ! confirm('Отправить письмо?')) {
+		return;
+	}
 	
 	$('#loading').show();
 	
