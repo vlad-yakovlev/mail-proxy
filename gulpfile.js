@@ -4,7 +4,6 @@ const gulp = require('gulp');
 const gulpSimple = require('gulp-simple');
 const runSequence = require('run-sequence');
 const minimist = require('minimist');
-const browserSync = require('browser-sync').create();
 
 const config = require('./gulp-config');
 
