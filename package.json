@@ -1,6 +1,17 @@
 {
 	"name": "mail-proxy",
 	"version": "0.0.1",
+	"devDependencies": {
+		"gulp": "3",
+		"gulp-simple": "2",
+		"minimist": "1",
+		"gulp-autoprefixer": "3",
+		"gulp-cssnano": "2",
+		"gulp-less": "3",
+		"gulp-babel": "6",
+		"babel-preset-es2015-without-strict": "0",
+		"gulp-uglify": "2"
+	},
 	"dependencies": {
 		"body-parser": "1.17.2",
 		"co": "4.6.0",

@@ -1,0 +1,36 @@
+{
+    "src": "source",
+    "dest": "public",
+    "types": {
+        "css": {
+            "src": "**/*.css",
+            "pipe": [
+                [ "gulp-autoprefixer", "last 2 versions" ]
+            ],
+            "minify": [
+                [ "gulp-cssnano" ]
+            ]
+        },
+        "less": {
+            "src": "**/*.less",
+            "pipe": [
+                [ "gulp-less" ],
+                [ "gulp-autoprefixer", "last 2 versions" ]
+            ],
+            "minify": [
+                [ "gulp-cssnano" ]
+            ]
+        },
+        "js": {
+            "src": "**/*.js",
+            "pipe": [
+                [ "gulp-babel", {
+                    "presets": [ "es2015-without-strict" ]
+                } ]
+            ],
+            "minify": [
+                [ "gulp-uglify" ]
+            ]
+        }
+    }
+}

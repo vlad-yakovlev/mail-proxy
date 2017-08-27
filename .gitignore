@@ -5,6 +5,7 @@
 
 /log/
 /attachments/
+/public/
 
 /conf/config.json
 /conf/pm2.json
