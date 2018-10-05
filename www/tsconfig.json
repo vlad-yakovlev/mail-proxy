@@ -1,0 +1,8 @@
+{
+    "extends": "../tsconfig",
+    "compilerOptions": {
+        "lib": ["es2017"],
+        "outDir": "../tsc-build/www",
+        "target": "es2017"
+    }
+}

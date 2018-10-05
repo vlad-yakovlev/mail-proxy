@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "lib": ["esnext"],
+        "module": "esnext",
+        "moduleResolution": "node",
+        "outDir": "tsc-build",
+        "resolveJsonModule": true,
+        "strict": true,
+        "target": "esnext"
+    },
+    "exclude": ["tsc-build/**/*"]
+}

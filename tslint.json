@@ -1,0 +1,24 @@
+{
+    "defaultSeverity": "error",
+    "extends": ["tslint:recommended"],
+    "jsRules": {},
+    "rules": {
+        "array-bracket-spacing": [true, "newer"],
+        "interface-name": [true, "never-prefix"],
+        "object-curly-spacing": [true, "always"],
+        "max-line-length": [true, 120],
+        "member-access": true,
+        "no-empty-interface": false,
+        "switch-default": true,
+        "typedef": [
+            true,
+            "call-signature",
+            "parameter",
+            "property-declaration",
+            "variable-declaration",
+            "member-variable-declaration"
+        ],
+        "quotemark": [true, "single"]
+    },
+    "rulesDirectory": ["node_modules/tslint-eslint-rules/dist/rules"]
+}
