@@ -1,0 +1,5 @@
+{
+    "api_port": 80,
+    "mongo_url": "mongodb://localhost:27017/mail-proxy",
+    "smtp_port": 25
+}
